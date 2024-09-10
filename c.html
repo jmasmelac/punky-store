@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punky Store</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #111;
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff0054;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: #222;
+            border: 2px solid #ff0054;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 3px solid #ff0054;
+        }
+        .product h3 {
+            color: #ffcc00;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .product p {
+            color: #00ff55;
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .product button {
+            background-color: #ff0054;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .product button:hover {
+            background-color: #ffcc00;
+            color: #000;
+            transform: scale(1.1);
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 84, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Punky Store</h1>
+    </header>
+
+    <section class="products">
+        <div class="product">
+            <img src="https://i.imgur.com/tgcKdxb.png" alt="Producto 1">
+            <h3>Saco Punk Zeok</h3>
+            <p>$49.99</p>
+            <button onclick="comprarProducto('Producto 1')">Comprar ahora</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/xFrEYx9.png" alt="Producto 2">
+            <h3>Saco de rallas</h3>
+            <p>$49.99</p>
+            <button onclick="comprarProducto('Producto 2')">Comprar ahora</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/09TbLqi.png" alt="Producto 3">
+            <h3>Saco Punk Plunsis</h3>
+            <p>$49.99</p>
+            <button onclick="comprarProducto('Producto 3')">Comprar ahora</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/947ahlY.png" alt="Producto 4">
+            <h3>Jean oscuro</h3>
+            <p>$59.99</p>
+            <button onclick="comprarProducto('Producto 4')">Comprar ahora</button>
+        </div>
+        <div class="product">
+            <img src="https://i.imgur.com/gLd18Xe.png" alt="Producto 5">
+            <h3>Tenis Suela Blanca</h3>
+            <p>$69.99</p>
+            <button onclick="comprarProducto('Producto 5')">Comprar ahora</button>
+        </div>
+    </section>
+
+    <script>
+    // Definir constantes para el número de WhatsApp, el mensaje base y la URL
+    const WHATSAPP_NUMBER = "573214567890"; // Reemplaza con tu número en formato internacional
+    const BASE_MESSAGE = "¡Hola! Me gustaría obtener más información sobre el producto: ";//este mensaje se puede mejorar
+    const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=`;
+
+    function comprarProducto(productName) {
+        // Combinar la URL de WhatsApp con el mensaje codificado y el nombre del producto
+        const fullMessage = `${BASE_MESSAGE}${productName}`;
+        const whatsappURL = `${WHATSAPP_URL}${encodeURIComponent(fullMessage)}`;
+        
+        // Abrir el enlace de WhatsApp en una nueva pestaña
+        window.open(whatsappURL, '_blank');
+    }
+    </script>
+
+</body>
+</html>
